@@ -6,6 +6,11 @@
  * Time: 11:08
  */
 ?>
+<link rel="stylesheet" href="public/css/normalize.css">
+<link href='https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400italic,700italic,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="public/css/main.css">
+<link rel="stylesheet" href="public/css/responsive.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +28,6 @@
          <ul>
            <li><a href="" class="selected">Log in</a></li>
            <li><a href="">Sign in</a></li>
-           <li><a href="">Info</a></li>
          </ul>
       </nav>
     </header>

@@ -1,11 +1,9 @@
-<link rel="stylesheet" href="view/css/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400italic,700italic,700,800' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="view/css/main.css">
-<link rel="stylesheet" href="view/css/responsive.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php include "view/templates/header.php" ?>
-    <?php require_once 'models/pdo/db.php';?>
+
+    <?php include "public/templates/header.php" ?>
+    <?php require_once 'private/models/pdo/db.php';?>
+
+
 
 
         <div class="formclass">
@@ -17,7 +15,6 @@
 
         </div>
 
-        <?php include "view/templates/footer.php" ?>
+        <?php include "public/templates/footer.php" ?>
 
-  </body>
-</html>
+
