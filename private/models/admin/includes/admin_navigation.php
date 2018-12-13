@@ -61,7 +61,7 @@
                         <a href="#">Barbers</a>
                     </li>
                     <li>
-                        <a href="#">Customers</a>
+                        <a href="customers.php">Customers</a>
                     </li>
                 </ul>
             </li>
