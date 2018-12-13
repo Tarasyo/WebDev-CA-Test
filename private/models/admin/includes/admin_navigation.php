@@ -46,10 +46,10 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li>
-                <a href="tables.html"><i class="fa fa-fw fa-table"></i> Bookings</a>
+                <a href="index.php"><i class="fa fa-fw fa-table"></i> Bookings</a>
             </li>
             <li>
-                <a href="../booking_slots.php"><i class="fa fa-fw fa-edit"></i> Available Bookings</a>
+                <a href="booking_slots.php"><i class="fa fa-fw fa-edit"></i> Available Bookings</a>
             </li>
             <li>
                 <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Complains</a>
@@ -65,7 +65,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="active">
+            <li class="newAdmin">
                 <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Add New Admin</a>
             </li>
         </ul>
