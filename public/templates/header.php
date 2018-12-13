@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Tarasyo
- * Date: 29/11/2018
- * Time: 11:08
- */
+
 ?>
-<link rel="stylesheet" href="public/css/normalize.css">
+
 <link href='https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400italic,700italic,700,800' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="public/css/main.css">
 <link rel="stylesheet" href="public/css/responsive.css">
+<link rel="stylesheet" href="public/css/normalize.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!DOCTYPE html>
 <html>

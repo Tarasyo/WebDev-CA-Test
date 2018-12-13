@@ -4,7 +4,7 @@ GENERAL
 
 
 body {
-    color: #878787;
+    color: #ffffff;
     margin: 0;
     font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -123,7 +123,7 @@ footer {
 
 
 /***************************************
-PAGE: LOG IN
+
 ****************************************/
 .formclass {
 
@@ -132,6 +132,7 @@ PAGE: LOG IN
     margin-right: auto;
     width: 8em;
     font-size: large;
+
 
 }
 
@@ -149,7 +150,7 @@ COLORS
 
 body {
   background-color: #fff;
-  color: #DCDCDC;
+  color: #000000;
 }
 
 
@@ -171,10 +172,12 @@ color: #fff;
 }
 
 nav a.selected, nav a:hover {
-  color: #696969;
+  color: #ffffff;
 }
 
-
+label {
+    color: #ffffff;
+}
 
 
 
