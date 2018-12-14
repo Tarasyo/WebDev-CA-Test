@@ -52,13 +52,13 @@
                 <a href="booking_slots.php"><i class="fa fa-fw fa-edit"></i> Available Bookings</a>
             </li>
             <li>
-                <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Complains</a>
+                <a href="complaints.php"><i class="fa fa-fw fa-desktop"></i> Complains</a>
             </li>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="users"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="#">Barbers</a>
+                        <a href="barbers.php">Barbers</a>
                     </li>
                     <li>
                         <a href="customers.php">Customers</a>

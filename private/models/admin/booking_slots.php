@@ -32,7 +32,7 @@
 
                         <tbody>
 
-            <?php getBooking_slots();?>
+            <?php ShowBooking_slots();?>
 
 
                         </tbody>

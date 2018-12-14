@@ -20,13 +20,13 @@
                             <thead>
                             <tr>
 
-                                <th>ID</th>
-                                <th>First Name</th>
+                                <th>Complaint ID</th>
+                                <th>Barbershop Name</th>
+                                <th>Complaint</th>
+                                <th>Customer First Name</th>
                                 <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Phone</th>
-                                <th>Date of Creation</th>
+
+
 
 
                             </tr>
@@ -34,7 +34,7 @@
 
                             <tbody>
 
-                            <?php showCustomers()?>
+                            <?php  showCoplaints()?>
 
 
                             </tbody>

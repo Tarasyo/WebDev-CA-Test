@@ -21,12 +21,15 @@
                             <tr>
 
                                 <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Barbershop Name</th>
                                 <th>Email</th>
                                 <th>Password</th>
                                 <th>Phone</th>
+                                <th>Status</th>
                                 <th>Date of Creation</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>Eir Code</th>
 
 
                             </tr>
@@ -34,7 +37,7 @@
 
                             <tbody>
 
-                            <?php showCustomers()?>
+                            <?php  showBarbers()?>
 
 
                             </tbody>
