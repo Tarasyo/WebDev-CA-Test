@@ -15,6 +15,30 @@
                             <small>Subheading</small>
                         </h1>
 
+
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+
+                                <th>Barbers</th>
+                                <th>Location</th>
+                                <th>Date</th>
+                                <th>Customer Name</th>
+                                <th>Status</th>
+
+
+
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <?php  showBookings()?>
+
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <!-- /.row -->

@@ -5,7 +5,8 @@ function showBooking_slots() {
 
     global $connection;
 
-     $query = "SELECT shop_name, time_stamp, availability, address, city FROM barber b JOIN booking_slots bs  ON b.b_id = bs.b_id JOIN location l ON b.b_id = l.b_id";
+     $query = "SELECT shop_name, time_stamp, availability, address, city FROM barber b ";
+     $query .= "JOIN booking_slots bs  ON b.b_id = bs.b_id JOIN location l ON b.b_id = l.b_id";
      $select_booking_slots = mysqli_query($connection, $query);
 
      while($row = mysqli_fetch_assoc($select_booking_slots)){
@@ -97,7 +98,8 @@ function showCoplaints() {
 
     global $connection;
 
-    $query = "SELECT shop_name, first_name, last_name, complaint_id, complaint FROM complaints co JOIN barber b  ON co.b_id = b.b_id JOIN customers c ON co.c_id = c.c_id";
+    $query = "SELECT shop_name, first_name, last_name, complaint_id, complaint FROM complaints co ";
+    $query .= "JOIN barber b  ON co.b_id = b.b_id JOIN customers c ON co.c_id = c.c_id";
     $select_complaints = mysqli_query($connection, $query);
 
     while($row = mysqli_fetch_assoc($select_complaints)){
@@ -112,8 +114,37 @@ function showCoplaints() {
         echo "<td>$co_id</td>";
         echo "<td>$shop_name</td>";
         echo "<td>$complaint</td>";
-        echo "<td>$first_name</td>";
-        echo "<td>$last_name</td>";
+        echo "<td>$first_name $last_name</td>";
+        echo "</tr>";
+    }
+
+}
+function showBookings() {
+
+    global $connection;
+
+    $query = "SELECT shop_name, time_stamp, booking_status, address, city, first_name, last_name FROM booking bo JOIN barber b ON b.b_id = bo.b_id JOIN location l ON b.b_id = l.b_id JOIN customers c ON c.c_id = bo.c_id";
+    //$query .= "";
+    $select_bookings = mysqli_query($connection, $query);
+
+    while($row = mysqli_fetch_assoc($select_bookings)){
+
+
+        $shop_name = $row['shop_name'];
+        $date = $row['time_stamp'];
+        $booking_status = $row['booking_status'];
+        $address = $row['address'];
+        $city = $row['city'];
+        $first_name = $row['first_name'];
+        $last_name = $row['last_name'];
+
+        echo "<tr>";
+        echo "<td>$shop_name</td>";
+        echo "<td>$address $city</td>";
+        echo "<td>$date</td>";
+        echo "<td>$first_name $last_name</td>";
+        echo "<td>$booking_status</td>";
+
         echo "</tr>";
     }
 

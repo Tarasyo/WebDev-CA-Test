@@ -23,8 +23,8 @@
                                 <th>Complaint ID</th>
                                 <th>Barbershop Name</th>
                                 <th>Complaint</th>
-                                <th>Customer First Name</th>
-                                <th>Last Name</th>
+                                <th>Customer Name</th>
+
 
 
 
