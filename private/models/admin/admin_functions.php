@@ -54,8 +54,18 @@ function showCustomers() {
         echo "<td>$password</td>";
         echo "<td>$phone</td>";
         echo "<td>$date_sign_in</td>";
+        echo "<td><a href='customers.php?delete={$c_id}'>Delete</a></td>";
         echo "</tr>";
     }
+    if(isset($_GET['delete'])) {
+
+        $the_c_id = $_GET['delete'];
+
+        $query = "DELETE FROM customers WHERE c_id = {$the_c_id}";
+        $delete_query = mysqli_query($connection, $query);
+        header("Location: customers.php");
+    }
+
 }
 
 function showBarbers() {
@@ -90,7 +100,36 @@ function showBarbers() {
         echo "<td>$address</td>";
         echo "<td>$city</td>";
         echo "<td>$eir_code</td>";
+        echo "<td><a href='barbers.php?delete={$b_id}'>Delete</a></td>";
+        echo "<td><a href='barbers.php?approved={$b_id}'>Approved</a></td>";
+        echo "<td><a href='barbers.php?reject={$b_id}'>Reject</a></td>";
         echo "</tr>";
+    }
+
+    if(isset($_GET['delete'])) {
+
+    $the_b_id = $_GET['delete'];
+
+    $query = "DELETE FROM barber WHERE b_id = {$the_b_id}";
+    $delete_query = mysqli_query($connection, $query);
+    header("Location: barbers.php ");
+    }
+    if(isset($_GET['approved'])) {
+
+        $the_b_id = $_GET['approved'];
+
+        $query = "UPDATE barber SET approved_status ='approved' WHERE b_id = {$the_b_id}";
+        $delete_query = mysqli_query($connection, $query);
+        header("Location: barbers.php ");
+    }
+    if(isset($_GET['reject'])) {
+
+        $the_b_id = $_GET['reject'];
+
+        $query = "UPDATE barber SET approved_status ='reject' WHERE b_id = {$the_b_id}";
+        $delete_query = mysqli_query($connection, $query);
+        header("Location: barbers.php ");
+
     }
 }
 
@@ -123,8 +162,8 @@ function showBookings() {
 
     global $connection;
 
-    $query = "SELECT shop_name, time_stamp, booking_status, address, city, first_name, last_name FROM booking bo JOIN barber b ON b.b_id = bo.b_id JOIN location l ON b.b_id = l.b_id JOIN customers c ON c.c_id = bo.c_id";
-    //$query .= "";
+    $query = "SELECT shop_name, time_stamp, booking_status, address, city, first_name, last_name FROM booking bo ";
+    $query .= "JOIN barber b ON b.b_id = bo.b_id JOIN location l ON b.b_id = l.b_id JOIN customers c ON c.c_id = bo.c_id";
     $select_bookings = mysqli_query($connection, $query);
 
     while($row = mysqli_fetch_assoc($select_bookings)){
@@ -144,6 +183,7 @@ function showBookings() {
         echo "<td>$date</td>";
         echo "<td>$first_name $last_name</td>";
         echo "<td>$booking_status</td>";
+
 
         echo "</tr>";
     }

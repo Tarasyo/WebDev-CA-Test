@@ -1,6 +1,6 @@
 
-<?php include "includes/db.php";?>
-<?php include "functions.php";?>
+<?php include "../../controller/db.php";?>
+<?php include "admin_functions.php";?>
 
 <?php ob_start(); ?>
 <!DOCTYPE html>

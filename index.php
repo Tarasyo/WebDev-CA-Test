@@ -1,6 +1,6 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <?php include "public/templates/header.php" ?>
+    <?php include "public/includes/header.php" ?>
 
 
 
@@ -18,12 +18,12 @@
                         <input type="password" name="password" class="form-group">
                     </div>
 
-                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                    <input class="btn btn-primary" type="submit" name="login" value="Login">
 
                 </form>
             </div>
         </div>
 
-        <?php include "public/templates/footer.php" ?>
+        <?php include "public/includes/footer.php" ?>
 
 
