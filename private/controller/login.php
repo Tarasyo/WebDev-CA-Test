@@ -1,7 +1,9 @@
+
+<?php include 'db.php';?>
+<?php include 'validation.php';?>
+
 <?php
 
- include 'db.php';
- include 'validation.php';
 
  if(isset($_POST['login'])){
 
