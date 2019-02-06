@@ -43,11 +43,12 @@ function customerValid($email, $password){
         $db_pass = $row['password'];
         $db_first_name = $row['first_name'];
         $db_last_name = $row['last_name'];
+        $bd_id = $row['c_id'];
 
         if($email == $db_email && $password == $db_pass){
 
             $_SESSION['name'] = "$db_first_name $db_last_name";
-
+            $_SESSION['id'] = $bd_id;
             return true;
         }else{
             return false;
@@ -71,10 +72,13 @@ function barberValid($email, $password){
         $db_pass = $row['password'];
         $db_status = $row['approved_status'];
         $db_shop_name = $row['shop_name'];
+        $bd_id = $row['b_id'];
+
         if($email == $db_email && $password == $db_pass && $db_status == 'approved'){
 
 
             $_SESSION['name'] = $db_shop_name;
+            $_SESSION['id'] = $bd_id;
 
             return true;
         }else{

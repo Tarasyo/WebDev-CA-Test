@@ -1,0 +1,76 @@
+INSERT INTO `barber` (`password`, `email`, `date_of_account_creation`, `phone`, `approved_status`, `shop_name`) VALUES
+('password', 'email@gmail.com', '2018-07-07 ', '098763443', 'approved', 'Baba'),
+('password', 'email2@gmail.com', '2018-07-08 ', '098763444', 'approved', 'Loic'),
+('password', 'email3@gmail.com', '2018-07-08 ', '098763445', 'reject', 'Lark'),
+('password', 'email4@gmail.com', '2018-07-08 ', '098763446', 'hold', 'Hair'),
+('password', 'email5@gmail.com', '2018-07-09 ', '098763447', 'approved', 'Mom');
+
+INSERT INTO `customers` (`password`, `email`, `phone`, `first_name`, `last_name`, `date_of_account_creation`) VALUES
+('password', 'email@gmail.com', '098763001', 'Ivan', 'Lol', '2018-08-07 '),
+('password', 'email2@gmail.com', '098763002', 'Petro', 'Ivanov', '2018-08-08 '),
+('password', 'email3@gmail.com', '098763003', 'Lolik', 'Lark','2018-08-08 '),
+('password', 'email4@gmail.com', '098763004', 'Sherlok', 'Holms', '2018-08-08 '),
+('password', 'email5@gmail.com', '098763005', 'Pepe', 'Pig', '2018-08-09 ');
+
+INSERT INTO `location` (`b_id`, `first_line_address`, `city`) VALUES
+('1', '20 Dundrum pass', 'Dublin'),
+('2', '33 brom street', 'Dublin'),
+('3', '153 connoly street', 'Dublin'),
+('4', '23 baker street', 'Dublin'),
+('5', '23 brom street', 'Cork');
+
+INSERT INTO `booking_slots` (`time_stamp`, `b_id`, `availability`) VALUES
+('2018-07-07 13:00:00', 2, 1),
+('2018-07-08 15:00:00', 1, 1),
+('2018-07-08 10:00:00', 2, 1),
+('2018-07-08 17:00:00', 4, 1),
+('2018-07-09 19:00:00', 1, 1),
+('2018-07-09 09:00:00', 2, 1),
+('2018-07-09 08:00:00', 4, 1);
+
+
+INSERT INTO `booking` (`time_stamp`, `b_id`, `c_id`, `booking_status`) VALUES
+('2018-07-07 13:00:00', 2, 2, 'complete'),
+('2018-07-08 15:00:00', 1, 1, 'complete'),
+('2018-07-08 10:00:00', 2, 3, 'complete'),
+('2018-07-08 17:00:00', 4, 4, 'canceled'),
+('2018-07-09 19:00:00', 1, 1, 'complete'),
+('2018-07-09 09:00:00', 2, 1, 'complete'),
+('2018-07-09 08:00:00', 4, 5, 'complete');
+
+INSERT INTO `complaints` (`b_id`, `c_id`,`complaint`) VALUES
+(2, 1, 'Cut my finger'),
+(1, 3, 'Rute'),
+(2, 1, 'Very bad service'),
+(4, 5, 'Hate my new hair cut'),
+(1, 1, 'bebebbebebebebbeb');
+
+INSERT INTO admin (password, email) VALUES('admin', 'admin@admin.com');
+
+INSERT INTO `booking_slots` (`time_stamp`, `b_id`, `availability`) VALUES
+('2018-12-07 13:00:00', 2, 1),
+('2018-12-08 15:00:00', 1, 4);
+
+INSERT INTO `booking` (`time_stamp`, `b_id`, `c_id`, `booking_status`) VALUES
+('2018-12-07 13:00:00', 2, 2, 'complete'),
+('2018-12-08 15:00:00', 1, 4, 'complete');
+
+SELECT shop_name 'BARBERSHOP', bo.booking_status 'STATUS', bo.time_stamp FROM barber b join
+ booking bo on b.b_id = bo.b_id WHERE bo.booking_status = 'complete' HAVING bo.time_stamp > '2018-09-01';
+
+
+SELECT shop_name 'Barbershop', time_stamp 'Time', booking_status 'Status' FROM barber b JOIN booking bo ON
+b.b_id = bo.b_id WHERE booking_status = 'complete';
+
+SELECT shop_name 'Barbershop', (SELECT count(*) from customers c join booking bo ON bo.c_id = c.c_id WHERE
+bo.b_id = b.b_id AND bo.c_id = c.c_id AND YEAR(bo.time_stamp) >=2018) 'Number of customers' FROM
+barber b GROUP BY shop_name;
+
+SELECT c.first_name 'First Name', c.last_name 'Last Name', b.shop_name 'Barbershop' FROM customers c JOIN
+ booking bo ON bo.c_id = c.c_id JOIN barber b ON b.b_id = bo.b_id;
+
+SELECT shop_name 'Barbershop',(SELECT count(b3.b_id) 
+FROM booking b3 WHERE b3.b_id = bo.b_id) 'How many appointments' , 
+(SELECT count(b1.b_id) 
+FROM booking b1 WHERE b1.b_id = bo.b_id AND b1.booking_status = 'complete') 'How many complete' 
+FROM barber b JOIN booking bo ON bo.b_id = b.b_id GROUP BY shop_name;

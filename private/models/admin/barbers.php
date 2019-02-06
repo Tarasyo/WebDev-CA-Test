@@ -29,7 +29,6 @@
                                 <th>Date of Creation</th>
                                 <th>Address</th>
                                 <th>City</th>
-                                <th>Eir Code</th>
 
 
                             </tr>

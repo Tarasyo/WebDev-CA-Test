@@ -22,8 +22,9 @@
        </a>
        <nav>
          <ul>
-           <li><a href="" class="selected">Log in</a></li>
-           <li><a href="">Sign in</a></li>
+           <li><a href="index.php">Log in</a></li>
+           <li><a href="registrationC.php">Sign in Customer</a></li>
+             <li><a href="registrationB.php">Sign in Barber</a></li>
          </ul>
       </nav>
     </header>

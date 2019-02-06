@@ -162,7 +162,7 @@ function showBookings() {
     global $connection;
 
     $query = "SELECT  time_stamp, booking_status, first_name, last_name, c.phone, c.c_id FROM booking bo ";
-    $query .= "JOIN barber b ON b.b_id = bo.b_id JOIN customers c ON c.c_id = bo.c_id WHERE b.b_id = {$_SESSION['id']}";
+    $query .= "JOIN barber b ON b.b_id = bo.b_id JOIN customers c ON c.c_id = bo.c_id WHERE c.c_id = {$_SESSION['id']}";
     $select_bookings = mysqli_query($connection, $query);
 
     while($row = mysqli_fetch_assoc($select_bookings)){
@@ -180,9 +180,7 @@ function showBookings() {
         echo "<td>$date</td>";
         echo "<td>$booking_status</td>";
         echo "<td>$phone</td>";
-        echo "<td><a href='index.php?complete={$c_id}'>Complete</a></td>";
-        echo "<td><a href='index.php?progress={$c_id}'>In Progress</a></td>";
-        echo "<td><a href='index.php?canceled={$c_id}'>Canceled</a></td>";
+        echo "<td><a href='index.php?book={$c_id}'>Canceled</a></td>";
         echo "</tr>";
     }
     if(isset($_GET['complete'])) {

@@ -87,7 +87,6 @@ function showBarbers() {
         $date_sign_in = $row['date_of_account_creation'];
         $address = $row['address'];
         $city = $row['city'];
-        $eir_code = $row['eir_code'];
 
         echo "<tr>";
         echo "<td>$b_id</td>";
@@ -99,7 +98,6 @@ function showBarbers() {
         echo "<td>$date_sign_in</td>";
         echo "<td>$address</td>";
         echo "<td>$city</td>";
-        echo "<td>$eir_code</td>";
         echo "<td><a href='barbers.php?delete={$b_id}'>Delete</a></td>";
         echo "<td><a href='barbers.php?approved={$b_id}'>Approved</a></td>";
         echo "<td><a href='barbers.php?reject={$b_id}'>Reject</a></td>";

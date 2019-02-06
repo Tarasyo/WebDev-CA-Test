@@ -20,11 +20,10 @@
                             <thead>
                             <tr>
 
-                                <th>Barbers</th>
-                                <th>Location</th>
-                                <th>Date</th>
                                 <th>Customer Name</th>
+                                <th>Date</th>
                                 <th>Status</th>
+                                <th>Phone</th>
 
 
 

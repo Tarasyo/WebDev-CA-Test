@@ -1,0 +1,121 @@
+DROP DATABASE IF EXISTS booking_data;
+CREATE DATABASE booking_data;
+USE booking_data;
+
+
+
+CREATE TABLE admin (
+                id INT AUTO_INCREMENT NOT NULL,
+                password VARCHAR(60) NOT NULL,
+                email VARCHAR(60) NOT NULL,
+                PRIMARY KEY (id)
+);
+
+
+CREATE TABLE barber (
+                b_id INT AUTO_INCREMENT NOT NULL,
+                password VARCHAR(60) NOT NULL,
+                email VARCHAR(60) NOT NULL,
+                date_of_account_creation DATE NOT NULL,
+                phone VARCHAR(30) NOT NULL,
+                approved_status VARCHAR(20) NOT NULL,
+		shop_name VARCHAR(30) NOT NULL,
+                PRIMARY KEY (b_id)
+);
+
+
+CREATE UNIQUE INDEX barber_idx
+ ON barber
+ ( email );
+
+CREATE TABLE booking_slots (
+                time_stamp DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                b_id INT NOT NULL,
+                availability BOOLEAN DEFAULT True NOT NULL,
+                PRIMARY KEY (time_stamp, b_id)
+);
+
+
+CREATE TABLE location (
+                b_id INT NOT NULL,
+                first_line_address VARCHAR(50) NOT NULL,
+                city VARCHAR(20) DEFAULT 'Dublin' NOT NULL,
+                second_line_address VARCHAR(30),
+                PRIMARY KEY (b_id)
+);
+
+
+CREATE TABLE customers (
+                c_id INT AUTO_INCREMENT NOT NULL,
+                password VARCHAR(60) NOT NULL,
+                email VARCHAR(60) NOT NULL,
+                phone VARCHAR(30) NOT NULL,
+                first_name VARCHAR(25) NOT NULL,
+                last_name VARCHAR(25) NOT NULL,
+                date_of_account_creation DATE NOT NULL,
+ 	        randSalt VARCHAR(255) DEFAULT '$2y$10$iusesomecrazystring22'  NOT NULL,	
+                PRIMARY KEY (c_id)
+);
+
+
+CREATE UNIQUE INDEX customers_idx
+ ON customers
+ ( email, phone );
+
+CREATE TABLE booking (
+                time_stamp DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                c_id INT NOT NULL,
+                b_id INT NOT NULL,
+                booking_status VARCHAR(15) NOT NULL,
+                PRIMARY KEY (time_stamp, c_id, b_id)
+);
+
+CREATE TABLE complaints (
+                complaint_ID INT AUTO_INCREMENT NOT NULL,
+                b_id INT NOT NULL,
+                c_id INT NOT NULL,
+                complaint VARCHAR(500) NOT NULL,
+                PRIMARY KEY (complaint_ID)
+);
+
+
+
+
+ALTER TABLE location ADD CONSTRAINT barber_location_fk
+FOREIGN KEY (b_id)
+REFERENCES barber (b_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+ALTER TABLE booking_slots ADD CONSTRAINT barber_booking_slots_fk
+FOREIGN KEY (b_id)
+REFERENCES barber (b_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+ALTER TABLE booking ADD CONSTRAINT booking_slots_booking_fk
+FOREIGN KEY (time_stamp, b_id)
+REFERENCES booking_slots (time_stamp, b_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+ALTER TABLE booking ADD CONSTRAINT customers_booking_fk
+FOREIGN KEY (c_id)
+REFERENCES customers (c_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+
+ALTER TABLE complaints ADD CONSTRAINT barber_complaints_fk
+FOREIGN KEY (b_id)
+REFERENCES barber (b_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+ALTER TABLE complaints ADD CONSTRAINT customers_complaints_fk
+FOREIGN KEY (c_id)
+REFERENCES customers (c_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+
